@@ -1,5 +1,5 @@
 --cloud stone ice
-minetest.register_node("underbed_toilet_mg:cloud", {
+minetest.register_node("underbed_toilet_math_mg:cloud", {
 	description = "Cloud",
 	tiles = {"default_cloud.png"},
 	is_ground_content = false,
@@ -11,7 +11,7 @@ minetest.register_node("underbed_toilet_mg:cloud", {
 	sunlight_propagates = true,
 })
 
-minetest.register_node("underbed_toilet_mg:stone", {
+minetest.register_node("underbed_toilet_math_mg:stone", {
 	description = "Stone",
 	tiles = {"default_stone.png"},
 	groups = {cracky = 3, stone = 1},
@@ -24,7 +24,7 @@ minetest.register_node("underbed_toilet_mg:stone", {
 	sunlight_propagates = true,
 })
 
-minetest.register_node("underbed_toilet_mg:ice", {
+minetest.register_node("underbed_toilet_math_mg:ice", {
 	description = "Ice",
 	tiles = {"default_ice.png"},
 	is_ground_content = false,
@@ -174,7 +174,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local vec = vector.multiply(vector.subtract(vector.new(x,y,z),center),scale)
 			local d = mandelbox(vec.x,vec.y,vec.z,distance,iterations)
 			if d then
-				data[ivm] = minetest.get_content_id("underbed_toilet_mg:stone") -- or ice my favorite version of the old math mapgen mandelbox
+				data[ivm] = minetest.get_content_id("underbed_toilet_math_mg:stone") -- or ice my favorite version of the old math mapgen mandelbox
 			elseif y <= 0 then
 				data[ivm] = minetest.get_content_id("default:water_source")
 			else
