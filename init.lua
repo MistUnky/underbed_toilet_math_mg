@@ -159,7 +159,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			write = true
 		elseif y > 20000 and y < 31000 then
 			if math.random(1,3) == 1 then
-				data[ivm] = minetest.get_content_id("underbed_toilet_mg:cloud")
+				data[ivm] = minetest.get_content_id("default:meselamp") --cloud blocks currently broken looking
 			else
 				data[ivm] = minetest.get_content_id("default:water_source")
 			end
