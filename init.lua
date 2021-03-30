@@ -196,8 +196,8 @@ minetest.register_on_generated(function(minp, maxp, seed)
 
 end)
 
-minetest.register_chatcommand("warp_earth", {
-	description = "Warp to Pseudo Earth",
+minetest.register_chatcommand("warp_math", {
+	description = "Warp to Mandelbox",
 	func = function(name, pname)
 		local player = minetest.get_player_by_name(name)
 		player:setpos({x=player:getpos().x,y=100,z=player:getpos().z})
