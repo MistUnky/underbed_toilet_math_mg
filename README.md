@@ -5,7 +5,7 @@ Add underbedrock hell zone and sky toilet zone to mapgeneration in Minetest.
 
 Commands:
 
-/warp_earth : teleport to earth
+/warp_math : teleport to mandelbox world
 
 /warp_bed : teleport under bedrock
 
