@@ -1,3 +1,50 @@
+aleph = {}
+beth = {}
+minetest.register_on_mapgen_init(function(mapgen_params)
+	local h = 0
+	math.randomseed(mapgen_params.seed)
+	for i = 0,31000 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		aleph[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		aleph[i] = h
+	end
+	h = 0
+	for i = 0,31000 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		beth[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		beth[i] = h
+	end
+end)
+minetest.set_mapgen_params({mgname="singlenode"})
+minetest.register_craft({
+	type = "shapeless",
+	output = "default:stick 2",
+	recipe = {"default:stick"},
+})
 --cloud stone ice
 minetest.register_node("underbed_toilet_math_mg:cloud", {
 	description = "Cloud",
@@ -90,30 +137,13 @@ function mandelbox(x,y,z,d,nn)
 	return ((r / math.abs(dr)) < d)
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---orly
 minetest.register_on_generated(function(minp, maxp, seed)
-    local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
-    local data = vm:get_data()
-    local a = VoxelArea:new({MinEdge = emin, MaxEdge = emax})
-    local csize = vector.add(vector.subtract(maxp, minp), 1)
-    local write = false
+	local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
+	local data = vm:get_data()
+	local a = VoxelArea:new({MinEdge = emin, MaxEdge = emax})
+	local csize = vector.add(vector.subtract(maxp, minp), 1)
+	local write = false
 	for z = minp.z, maxp.z do
 	for y = minp.y, maxp.y do
 	for x = minp.x, maxp.x do
@@ -164,7 +194,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				data[ivm] = minetest.get_content_id("default:water_source")
 			end
 			write = true
-		else
+		elseif y >= 100 and y <= 20000 then
 			local size = 1000
 			local distance = 0.01
 			local invert = 0
@@ -175,29 +205,66 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local d = mandelbox(vec.x,vec.y,vec.z,distance,iterations)
 			if d then
 				data[ivm] = minetest.get_content_id("underbed_toilet_math_mg:stone") -- or ice my favorite version of the old math mapgen mandelbox
-			elseif y <= 0 then
-				data[ivm] = minetest.get_content_id("default:water_source")
+				if math.random(0,10000) <= 59 then data[ivm] = minetest.get_content_id("default:stone_with_coal") end
+		 		if math.random(0,10000) <= 41 then data[ivm] = minetest.get_content_id("default:stone_with_iron") end
+				if math.random(0,10000) <= 11 then data[ivm] = minetest.get_content_id("default:stone_with_mese") end
+		 		if math.random(0,10000) <= 3 then data[ivm] = minetest.get_content_id("default:stone_with_diamond") end
+			--elseif y <= 0 then
+				--data[ivm] = minetest.get_content_id("default:water_source")
 			else
 				data[ivm] = minetest.get_content_id("air")
 			end
 			write = true
+		else
+			if y < aleph[x] + beth[z] then
+				if y >=33 and y < 40 then
+	   				data[ivm] = minetest.get_content_id("default:lava_source")
+	   			elseif y >=40 then
+	   				data[ivm] = minetest.get_content_id("air")
+	   			else	
+		   			data[ivm] = minetest.get_content_id("default:stone")
+		   			if math.random(0,10000) <= 59 then data[ivm] = minetest.get_content_id("default:stone_with_coal") end
+			 		if math.random(0,10000) <= 41 then data[ivm] = minetest.get_content_id("default:stone_with_iron") end
+					if math.random(0,10000) <= 11 then data[ivm] = minetest.get_content_id("default:stone_with_mese") end
+			 		if math.random(0,10000) <= 3 then data[ivm] = minetest.get_content_id("default:stone_with_diamond") end
+			end
+			write = true
+		   	elseif y < 1 then
+				data[ivm] = minetest.get_content_id("default:water_source")
+				write = true
+		   	end
+		   	if y == aleph[x] + beth[z] and y < 4 then
+		   		data[ivm] = minetest.get_content_id("default:sand")
+		   	elseif y == aleph[x] + beth[z] and y >= 4 and y < 17 then
+		   		data[ivm] = minetest.get_content_id("default:dirt_with_grass")
+		   	elseif y == aleph[x] + beth[z] and y >= 17 and y < 23 then
+		   		data[ivm] = minetest.get_content_id("default:dirt_with_snow")
+		   	elseif y == aleph[x] + beth[z] and y >= 23 and y < 28 then
+		   		data[ivm] = minetest.get_content_id("default:ice")
+		   	elseif y == aleph[x] + beth[z] and y >= 28 and y < 33 then
+		   		data[ivm] = minetest.get_content_id("default:obsidian")
+		   	elseif y == aleph[x] + beth[z] and y >= 33 and y < 40 then-- and y < 40 then
+		   		data[ivm] = minetest.get_content_id("default:obsidianbrick")
+		   	elseif y == aleph[x] + beth[z] and y >= 40 then
+		   		data[ivm] = minetest.get_content_id("air")
+		   	end
 		end
 	end
 	end
 	end
 	
-    if write then
-        vm:set_data(data)
-        vm:set_lighting({day = 0, night = 0})
-        vm:calc_lighting()
-        vm:update_liquids()
-        vm:write_to_map()
-    end
+	if write then
+		vm:set_data(data)
+		vm:set_lighting({day = 0, night = 0})
+		vm:calc_lighting()
+		vm:update_liquids()
+		vm:write_to_map()
+	end
 
 end)
-
+--[[
 minetest.register_chatcommand("warp_math", {
-	description = "Warp to Mandelbox",
+	description = "Warp to Mandelbox Randomwalk fractal Sandwich",
 	func = function(name, pname)
 		local player = minetest.get_player_by_name(name)
 		player:setpos({x=player:getpos().x,y=100,z=player:getpos().z})
@@ -219,4 +286,4 @@ minetest.register_chatcommand("warp_bed", {
 		player:setpos({x=player:getpos().x,y=-20000,z=player:getpos().z})
 		player:set_sky({r=15, g=0, b=0}, "plain")
 	end
-})
+})--]]
