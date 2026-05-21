@@ -1,5 +1,19 @@
+local MATH_HEIGHT = 100000 --100
+
 aleph = {}
 beth = {}
+heatx = {}
+heaty = {}
+heatz = {}
+humidx = {}
+humidy = {}
+humidz = {}
+varx = {}
+vary = {}
+varz = {}
+cavex = {}
+cavey = {}
+cavez = {}
 minetest.register_on_mapgen_init(function(mapgen_params)
 	local h = 0
 	math.randomseed(mapgen_params.seed)
@@ -38,13 +52,240 @@ minetest.register_on_mapgen_init(function(mapgen_params)
 		end
 		beth[i] = h
 	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		heatx[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		heatx[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		heaty[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		heaty[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		heatz[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		heatz[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		humidx[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		humidx[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		humidy[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		humidy[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		humidz[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		humidz[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		varx[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		varx[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		vary[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		vary[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		varz[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		varz[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		cavex[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		cavex[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		cavey[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		cavey[i] = h
+	end
+	h = 0
+	for i = 0,31000,1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		cavez[i] = h
+	end
+	h = 0
+	for i = 0,-31000,-1 do
+		if math.random(0,1) == 1 then
+			h = h + 1
+		else
+			h = h - 1
+		end
+		cavez[i] = h
+	end
 end)
 minetest.set_mapgen_params({mgname="singlenode"})
+--[[
 minetest.register_craft({
 	type = "shapeless",
 	output = "default:stick 2",
 	recipe = {"default:stick"},
 })
+--]]
+
+minetest.register_on_newplayer(function(player)
+	local inv = player:get_inventory()
+	inv:add_item("main", "default:sapling")
+	inv:add_item("main", "default:junglesapling")
+	inv:add_item("main", "default:cactus")
+	inv:add_item("main", "default:papyrus")
+end)
+
 --cloud stone ice
 minetest.register_node("underbed_toilet_math_mg:cloud", {
 	description = "Cloud",
@@ -194,7 +435,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				data[ivm] = minetest.get_content_id("default:water_source")
 			end
 			write = true
-		elseif y >= 100 and y <= 20000 then
+		elseif y >= MATH_HEIGHT and y <= 20000 then
 			local size = 1000
 			local distance = 0.01
 			local invert = 0
@@ -204,7 +445,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			local vec = vector.multiply(vector.subtract(vector.new(x,y,z),center),scale)
 			local d = mandelbox(vec.x,vec.y,vec.z,distance,iterations)
 			if d then
-				data[ivm] = minetest.get_content_id("underbed_toilet_math_mg:stone") -- or ice my favorite version of the old math mapgen mandelbox
+				data[ivm] = minetest.get_content_id("underbed_toilet_math_mg:ice") -- or ice my favorite version of the old math mapgen mandelbox
 				if math.random(0,10000) <= 59 then data[ivm] = minetest.get_content_id("default:stone_with_coal") end
 		 		if math.random(0,10000) <= 41 then data[ivm] = minetest.get_content_id("default:stone_with_iron") end
 				if math.random(0,10000) <= 11 then data[ivm] = minetest.get_content_id("default:stone_with_mese") end
@@ -216,23 +457,29 @@ minetest.register_on_generated(function(minp, maxp, seed)
 			end
 			write = true
 		else
+			local lava_lim1 = 100
+			local lava_lim2 = 120
 			if y < aleph[x] + beth[z] then
-				if y >=33 and y < 40 then
+				if y >=lava_lim1 and y < lava_lim2 then
 	   				data[ivm] = minetest.get_content_id("default:lava_source")
-	   			elseif y >=40 then
+	   			elseif y >=lava_lim2 then
 	   				data[ivm] = minetest.get_content_id("air")
-	   			else	
-		   			data[ivm] = minetest.get_content_id("default:stone")
-		   			if math.random(0,10000) <= 59 then data[ivm] = minetest.get_content_id("default:stone_with_coal") end
-			 		if math.random(0,10000) <= 41 then data[ivm] = minetest.get_content_id("default:stone_with_iron") end
-					if math.random(0,10000) <= 11 then data[ivm] = minetest.get_content_id("default:stone_with_mese") end
-			 		if math.random(0,10000) <= 3 then data[ivm] = minetest.get_content_id("default:stone_with_diamond") end
-			end
-			write = true
+	   			else
+					if (cavex[x] + cavey[y] + cavez[z]) % 6 < 3 then
+					else
+						data[ivm] = minetest.get_content_id("default:stone")
+						if math.random(0,10000) <= 59 then data[ivm] = minetest.get_content_id("default:stone_with_coal") end
+						if math.random(0,10000) <= 41 then data[ivm] = minetest.get_content_id("default:stone_with_iron") end
+						if math.random(0,10000) <= 11 then data[ivm] = minetest.get_content_id("default:stone_with_mese") end
+						if math.random(0,10000) <= 3 then data[ivm] = minetest.get_content_id("default:stone_with_diamond") end
+					end
+				end
+				write = true
 		   	elseif y < 1 then
 				data[ivm] = minetest.get_content_id("default:water_source")
 				write = true
 		   	end
+			--[[
 		   	if y == aleph[x] + beth[z] and y < 4 then
 		   		data[ivm] = minetest.get_content_id("default:sand")
 		   	elseif y == aleph[x] + beth[z] and y >= 4 and y < 17 then
@@ -243,16 +490,56 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		   		data[ivm] = minetest.get_content_id("default:ice")
 		   	elseif y == aleph[x] + beth[z] and y >= 28 and y < 33 then
 		   		data[ivm] = minetest.get_content_id("default:obsidian")
-		   	elseif y == aleph[x] + beth[z] and y >= 33 and y < 40 then-- and y < 40 then
+		   	elseif y == aleph[x] + beth[z] and y >= lava_lim1 and y < lava_lim2 then-- and y < 40 then
 		   		data[ivm] = minetest.get_content_id("default:obsidianbrick")
-		   	elseif y == aleph[x] + beth[z] and y >= 40 then
+		   	elseif y == aleph[x] + beth[z] and y >= lava_lim2 then
 		   		data[ivm] = minetest.get_content_id("air")
 		   	end
+			--]]
+			if y == aleph[x] + beth[z] and y >= lava_lim1 and y < lava_lim2 then
+				data[ivm] = minetest.get_content_id("default:obsidianbrick")
+				write = true
+			elseif y == aleph[x] + beth[z] and y >= lava_lim2 then
+				data[ivm] = minetest.get_content_id("air")
+				write = true
+			elseif y == aleph[x] + beth[z] then
+				--gamma is heat, delta is humidity
+				if y <= 0 then
+					data[ivm] = minetest.get_content_id("default:sand")
+				else
+					if humidx[x] + humidy[y] + humidz[z] >= 0 and heatx[x] + heaty[y] + heatz[z] >= 0 then
+						if varx[x] + vary[y] + varz[z] >= 0 then
+							data[ivm] = minetest.get_content_id("default:dirt_with_grass")
+						else
+							data[ivm] = minetest.get_content_id("default:dirt_with_rainforest_litter")
+						end
+					elseif humidx[x] + humidy[y] + humidz[z] >= 0 and heatx[x] + heaty[y] + heatz[z] < 0 then
+						if varx[x] + vary[y] + varz[z] >= 0 then
+							data[ivm] = minetest.get_content_id("default:permafrost_with_moss")
+						else
+							data[ivm] = minetest.get_content_id("default:permafrost")
+						end
+					elseif humidx[x] + humidy[y] + humidz[z] < 0 and heatx[x] + heaty[y] + heatz[z] >= 0 then
+						if varx[x] + vary[y] + varz[z] >= 0 then
+							data[ivm] = minetest.get_content_id("default:desert_sand")
+						else
+							data[ivm] = minetest.get_content_id("default:desert_stone")
+						end
+					elseif humidx[x] + humidy[y] + humidz[z] < 0 and heatx[x] + heaty[y] + heatz[z] < 0 then
+						if varx[x] + vary[y] + varz[z] >= 0 then
+							data[ivm] = minetest.get_content_id("default:snowblock")
+						else
+							data[ivm] = minetest.get_content_id("default:ice")
+						end
+					end
+				end
+				write = true
+			end
 		end
 	end
 	end
 	end
-	
+
 	if write then
 		vm:set_data(data)
 		vm:set_lighting({day = 0, night = 0})
